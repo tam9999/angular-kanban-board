@@ -1,26 +1,49 @@
 <div cdkDropListGroup>
-    <div class="example-container">
-      <h2>To do</h2>
-  
+  <mat-card
+    class="example-container"
+    *ngFor="let list of jobLists; let i = index"
+  >
+    <h2 class="list-title">
+      {{ list.name }}({{ list.jobs.length }})
+      <mat-icon
+        class="icon-delete"
+        aria-hidden="false"
+        aria-label="Delete"
+        color="warn"
+        >delete
+      </mat-icon>
+    </h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="list.jobs"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
       <div
-        cdkDropList
-        [cdkDropListData]="todo"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+        class="example-box"
+        *ngFor="let item of list.jobs; let j = index"
+        cdkDrag
+        [cdkDragData]="item"
+      >
+        <div class="custom-placeholder" *cdkDragPlaceholder></div>
+        {{ item }}
       </div>
     </div>
-  
-    <div class="example-container">
-      <h2>Done</h2>
-  
-      <div
-        cdkDropList
-        [cdkDropListData]="done"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+
+    <div class="form">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="New Job" [(ngModel)]="list.newJob" (keyup.enter)="addNewJob(i, list.newJob)" />
+      </mat-form-field>
+      <div style="margin-left: 15px">
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="addNewJob(i, list.newJob)"
+        >
+          Add
+        </button>
       </div>
     </div>
-  </div>
-  
+  </mat-card>
+</div>

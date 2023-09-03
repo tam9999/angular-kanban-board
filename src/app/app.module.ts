@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ListComponent } from './list/list.component';
 import { AddListComponent } from './add-list/add-list.component';
 import { NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import {
   CdkDragDrop,
   CdkDrag,
@@ -20,6 +21,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [AppComponent, ListComponent, AddListComponent],
   imports: [
@@ -35,6 +37,8 @@ import {
     CdkDrag,
     CdkDropList,
     CdkDropListGroup,
+    MatCardModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
