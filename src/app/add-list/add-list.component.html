@@ -1,1 +1,18 @@
-
+<div class="add-list">
+  <div class="form">
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="New List"
+        [(ngModel)]="newList"
+        (keyup.enter)="addNewList()"
+      />
+    </mat-form-field>
+    <div style="margin-left: 15px">
+      <button mat-flat-button color="primary" (click)="addNewList()">
+        <mat-icon aria-hidden="false" aria-label="Add">add</mat-icon>
+        Add
+      </button>
+    </div>
+  </div>
+</div>

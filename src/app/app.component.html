@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="header"> Kanban board </mat-toolbar>
 
 <div class="wrapper">
-  <app-add-list></app-add-list>
-  <app-list></app-list>
+  <app-list [jobLists]="jobLists" (onAddNewJob)="addNewJob($event)"></app-list>
+  <app-add-list (onAddNewList)="addNewList($event)"></app-add-list>
 </div>
