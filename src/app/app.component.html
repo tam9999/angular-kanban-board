@@ -2,5 +2,5 @@
 
 <div class="wrapper">
   <app-list [jobLists]="jobLists" (onAddNewJob)="addNewJob($event)"></app-list>
-  <app-add-list (onAddNewList)="addNewList($event)"></app-add-list>
+  <app-add-new placeholder="New List" (onAddNew)="addNewList($event)"></app-add-new>
 </div>

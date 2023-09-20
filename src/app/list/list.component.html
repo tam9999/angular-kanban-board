@@ -26,29 +26,20 @@
         cdkDrag
         [cdkDragData]="item"
       >
-        <div class="custom-placeholder" *cdkDragPlaceholder></div>
         {{ item }}
-      </div>
-    </div>
-
-    <div class="form">
-      <mat-form-field class="full-width">
-        <input
-          matInput
-          placeholder="New Job"
-          [(ngModel)]="list.newJob"
-          (keyup.enter)="addNewJob(i, list.newJob)"
-        />
-      </mat-form-field>
-      <div style="margin-left: 15px">
-        <button
-          mat-flat-button
-          color="primary"
-          (click)="addNewJob(i, list.newJob)"
-        >
-          Add
+        <button class="example-box">
+          <mat-icon
+            class="icon-delete"
+            aria-hidden="false"
+            aria-label="Delete"
+            color="warn"
+            >delete
+          </mat-icon>
         </button>
+
+        <div class="custom-placeholder" *cdkDragPlaceholder></div>
       </div>
     </div>
+    <app-add-new placeholder="New Job" [index]="i" (onAddNew)="addNewJob($event)"></app-add-new>
   </mat-card>
 </div>

@@ -28,17 +28,15 @@ export class AppComponent {
       newJob: '',
     },
   ];
-  newList: string = '';
   addNewJob(payload: PayLoad) {
     this.jobLists[payload.index].jobs.push(payload.value);
     this.jobLists[payload.index].newJob = '';
   }
-  addNewList(listName: string) {
-    let a = {
-      name: listName,
+  addNewList(payload: PayLoad) {
+    this.jobLists.push({
+      name: payload.value,
       jobs: [],
       newJob: '',
-    };
-    this.jobLists.push(a);
+    });
   }
 }

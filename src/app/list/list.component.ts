@@ -5,6 +5,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { JobLists } from '../job-list.model';
+import { PayLoad } from '../pay-load.model';
 
 @Component({
   selector: 'app-list',
@@ -31,7 +32,7 @@ export class ListComponent {
     }
   }
 
-  addNewJob(index: number, value: string) {
-    this.onAddNewJob.emit({ index, value });
+  addNewJob(payload: PayLoad) {
+    this.onAddNewJob.emit(payload);
   }
 }
