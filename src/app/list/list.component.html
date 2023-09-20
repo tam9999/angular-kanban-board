@@ -3,15 +3,22 @@
     class="example-container"
     *ngFor="let list of jobLists; let i = index"
   >
-    <h2 class="list-title">
+    <h2>
       {{ list.name }}({{ list.jobs.length }})
-      <mat-icon
-        class="icon-delete"
-        aria-hidden="false"
-        aria-label="Delete"
-        color="warn"
-        >delete
-      </mat-icon>
+      <button
+        class="example-box"
+        style="font-size: 14px; padding: 0; margin: 0; display: contents"
+        type="button"
+        (click)="removeListJob(i)"
+      >
+        <mat-icon
+          class="icon-delete"
+          aria-hidden="false"
+          aria-label="Delete"
+          color="warn"
+          >delete
+        </mat-icon>
+      </button>
     </h2>
 
     <div
@@ -27,7 +34,7 @@
         [cdkDragData]="item"
       >
         {{ item }}
-        <button class="example-box">
+        <button class="example-box" type="button" (click)="removeJob(i, j)">
           <mat-icon
             class="icon-delete"
             aria-hidden="false"
@@ -40,6 +47,10 @@
         <div class="custom-placeholder" *cdkDragPlaceholder></div>
       </div>
     </div>
-    <app-add-new placeholder="New Job" [index]="i" (onAddNew)="addNewJob($event)"></app-add-new>
+    <app-add-new
+      placeholder="New Job"
+      [index]="i"
+      (onAddNew)="addNewJob($event)"
+    ></app-add-new>
   </mat-card>
 </div>

@@ -35,4 +35,13 @@ export class ListComponent {
   addNewJob(payload: PayLoad) {
     this.onAddNewJob.emit(payload);
   }
+
+  removeListJob(index: number) {
+    this.jobLists.splice(index,1)
+  }
+
+  removeJob(index: number, position:number) {
+    this.jobLists[index].jobs.splice(position,1)
+    console.log(this.jobLists)
+  }
 }
